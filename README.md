@@ -4,7 +4,7 @@ Crypto Nest is a web application designed to help users track their cryptocurren
 
 ## Features
 
-- **Portfolio Management:** Add, edit, and delete cryptocurrencies from your portfolio. Track the current value and percentage change of your holdings.
+- **Portfolio Management:** Add, edit, update, and delete cryptocurrencies from your portfolio. Track the current value and percentage change of your holdings.
 - **Market Data:** View real-time market data for a wide range of cryptocurrencies, including current price, market cap, and trading volume.
 - **Data Visualization:** Visualize portfolio performance with interactive charts and graphs. Monitor trends and analyze historical data.
 - **User Authentication:** Securely sign up and log in to your account using OAuth authentication. Protect your account with industry-standard security measures.
@@ -13,20 +13,19 @@ Crypto Nest is a web application designed to help users track their cryptocurren
 ## Getting Started
 
  Visit the following URL to access Crypto Nest online: [URL]
-(set up a custom domain name for the app)
 
 ## Technologies Used
-- **Frontend: JavaScript, HTML, CSS
-- **Backend: Node.js, Express.js, MongoDB
-- **Authentication: OAuth
-- **API Integration:
-- **Deployment: Heroku
+- **Frontend:** JavaScript, HTML, CSS
+- **Backend:** Node.js, Express.js, MongoDB
+- **Authentication:** OAuth
+- **API Integration:**
+- **Deployment:** Heroku
 
 ## Future Enhancements
-- **Add support for multiple portfolios per user
-- **Implement price alerts for specific cryptocurrencies
-- **News feed for cryptocurrency updates
-- **Develop mobile app version
+- Add support for multiple portfolios per user
+- Implement price alerts for specific cryptocurrencies
+- News feed for cryptocurrency updates
+- Develop mobile app version
 
 ## Links
 [Github](https://github.com/emmyileeva) | [Wireframe](https://wireframe.cc/joTaub) | [Trello](https://trello.com/b/2nEqkuXH/crypto-nest)
