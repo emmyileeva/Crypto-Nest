@@ -1,6 +1,6 @@
 # Crypto Nest
 
-Crypto Nest is a web application designed to help users track their cryptocurrency investments in real-time. The app allows users to manage their cryptocurrency portfolios, view market data for various cryptocurrencies, and monitor their portfolio performance over time.
+Crypto Nest is a web application designed to help users track their cryptocurrency investments in real time. The app allows users to manage their cryptocurrency portfolios, view market data for various cryptocurrencies, and monitor their portfolio performance over time.
 
 ## Features
 
@@ -21,5 +21,16 @@ Crypto Nest is a web application designed to help users track their cryptocurren
 - **Authentication: OAuth
 - **API Integration:
 - **Deployment: Heroku
+
+## Future Enhancements
+- **Add support for multiple portfolios per user
+- **Implement price alerts for specific cryptocurrencies
+- **News feed for cryptocurrency updates
+- **Develop mobile app version
+
+## Links
+[Github](https://github.com/emmyileeva) | [Wireframe](https://wireframe.cc/joTaub)
+
+## Acknowledgments
 
   
