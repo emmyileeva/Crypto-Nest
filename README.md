@@ -29,7 +29,7 @@ Crypto Nest is a web application designed to help users track their cryptocurren
 - **Develop mobile app version
 
 ## Links
-[Github](https://github.com/emmyileeva) | [Wireframe](https://wireframe.cc/joTaub)
+[Github](https://github.com/emmyileeva) | [Wireframe](https://wireframe.cc/joTaub) | [Trello](https://trello.com/b/2nEqkuXH/crypto-nest)
 
 ## Acknowledgments
 
