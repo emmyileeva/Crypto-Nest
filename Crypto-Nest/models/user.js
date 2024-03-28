@@ -7,6 +7,7 @@ const userSchema = new Schema(
     googleId: {
       type: String,
       required: true,
+      unique: true,
     },
     email: String,
     avatar: String,

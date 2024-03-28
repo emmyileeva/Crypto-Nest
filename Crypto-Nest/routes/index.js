@@ -20,15 +20,20 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/cryptos',
-    failureRedirect: '/cryptos'
+    successRedirect: '/home',
+    failureRedirect: '/index'
   }
 ));
+
+// Route to render home.ejs
+router.get('/home', function(req, res, next) {
+  res.render('home', { title: 'Home' });
+});
 
 // OAuth logout route
 router.get('/logout', function(req, res){
   req.logout(function() {
-    res.redirect('/cryptos');
+    res.redirect('/');
   });
 });
 

@@ -4,13 +4,16 @@
     <nav>
         <ul>
             <li><a href="#">Home</a></li>
+            <li><a href="/cryptocurrency">Cryptocurrency</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
             <li><a href="#profile">Profile/Settings</a></li>
+            <li><a href="/logout">Log Out</a></li>
         </ul>
     </nav>
 
     <!-- User profile section -->
     <section id="profile">
-        <h2>Welcome, User!</h2>
+        <h2>Welcome, <%= user.name %>!</h2>
         <!-- Add user profile information and settings options -->
     </section>
 
@@ -26,7 +29,7 @@
         <!-- Overview area displaying total portfolio value, balance, and performance -->
         <div class="overview">
             <h3>Portfolio Overview</h3>
-            <!-- Add graphs or charts to visualize portfolio performance -->
+            <!-- placeholder for graphs or charts to visualize portfolio performance -->
         </div>
     </section>
 
