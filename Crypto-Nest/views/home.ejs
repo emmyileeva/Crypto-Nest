@@ -4,18 +4,19 @@
     <nav>
         <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="/cryptocurrency">Cryptocurrency</a></li>
+            <li><a href="/trade">Trade</a></li>
             <li><a href="/portfolio">Portfolio</a></li>
-            <li><a href="#profile">Profile/Settings</a></li>
-            <li><a href="/logout">Log Out</a></li>
+            <li><a href="/marketdata">Market Data</a></li>
         </ul>
     </nav>
 
-    <!-- User profile section -->
-    <section id="profile">
+    <!-- Settings and Log Out links -->
+    <div class="profile-links">
+        <a href="/settings">Settings</a>
+        <a href="/logout">Log Out</a>
+    </div>
+
         <h2>Welcome, <%= user.name %>!</h2>
-        <!-- Add user profile information and settings options -->
-    </section>
 
     <!-- Crypto holdings section -->
     <section id="holdings">
