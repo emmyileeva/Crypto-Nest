@@ -1,38 +1,46 @@
 <%- include('partials/header') %>
 
-    <!-- Navigation bar -->
-    <nav>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="/portfolio">Portfolio</a></li>
-            <li><a href="/marketdata">Market Data</a></li>
-        </ul>
-    </nav>
+    <!-- Main content -->
+    <main class="container">
+        <!-- Navigation bar -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/portfolio">Portfolio</a></li>
+                <li><a href="/marketdata">Market Data</a></li>
+            </ul>
+        </nav>
 
-    <h2>Trade Cryptocurrency</h2>
+        <!-- Trade section -->
+        <section class="trade-section">
+            <h2 class="title">Trade Cryptocurrency</h2>
 
-    <!-- Search bar -->
-    <input type="text" id="search" placeholder="Search cryptocurrencies">
+            <!-- Search bar -->
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="Search">
+            </div>
 
-    <!-- Cryptocurrency list -->
-    <ul id="cryptoList">
-        <!-- Cryptocurrency items will be dynamically generated here -->
-    </ul>
+            <!-- Cryptocurrency list -->
+            <ul id="cryptoList" class="crypto-list">
+                <!-- Cryptocurrency items will be dynamically generated here -->
+            </ul>
 
-    <!-- Buy/Sell form -->
-    <form id="tradeForm">
-        <label for="crypto">Cryptocurrency:</label>
-        <select id="crypto" name="crypto">
-            <!-- Options will be dynamically populated based on user's cryptocurrency holdings -->
-        </select><br>
-        <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" name="quantity" required><br>
-        <label for="action">Action:</label>
-        <select id="action" name="action">
-            <option value="buy">Buy</option>
-            <option value="sell">Sell</option>
-        </select><br>
-        <button type="submit">Submit</button>
-    </form>
+            <!-- Buy/Sell form -->
+            <form id="tradeForm">
+                <label for="crypto">Cryptocurrency:</label>
+                <select id="crypto" name="crypto">
+                    <!-- Options will be dynamically populated based on user's cryptocurrency holdings -->
+                </select>
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" required>
+                <label for="action">Action:</label>
+                <select id="action" name="action">
+                    <option value="buy">Buy</option>
+                    <option value="sell">Sell</option>
+                </select>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </section>
+    </main>
 
     <%- include('partials/footer') %>
