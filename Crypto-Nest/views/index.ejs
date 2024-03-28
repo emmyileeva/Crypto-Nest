@@ -1,11 +1,47 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<%- include('partials/header') %>
+
+  <!-- Hero section -->
+  <section id="hero">
+    <div class="container">
+      <h1>Welcome to Crypto Nest</h1>
+      <p>Track your cryptocurrency investments with ease</p>
+      <a href="/signup" class="btn">Get Started</a>
+    </div>
+  </section>
+
+  <!-- Features section -->
+  <section id="features">
+    <div class="container">
+      <h2>Key Features</h2>
+      <div class="feature">
+        <h3>Real-time Tracking</h3>
+        <p>Stay updated with real-time data on cryptocurrency prices and market trends.</p>
+      </div>
+      <div class="feature">
+        <h3>Portfolio Management</h3>
+        <p>Effortlessly manage your cryptocurrency portfolio and track your investments.</p>
+      </div>
+      <div class="feature">
+        <h3>Market Analysis</h3>
+        <p>Analyze market data and trends to make informed investment decisions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits section -->
+  <section id="benefits">
+    <div class="container">
+      <h2>Benefits</h2>
+      <div class="benefit">
+        <p>Maximize your investment returns and optimize your portfolio performance.</p>
+      </div>
+      <div class="benefit">
+        <p>Stay informed with real-time alerts and notifications on market changes.</p>
+      </div>
+      <div class="benefit">
+        <p>Secure your assets with advanced encryption and authentication protocols.</p>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
