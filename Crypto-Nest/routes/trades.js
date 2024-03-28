@@ -1,10 +1,8 @@
 const express = require("express");
 const router = express.Router();
-
-
-
-router.get("/trade", function (req, res) {
-  res.render("trade"); // Renders the trade.ejs file
+// Route to render trade.ejs
+router.get("/", function (req, res) {
+  res.render("trade"); 
 });
 
 module.exports = router;
