@@ -1,2 +1,66 @@
 /* import the landing css page for global styles */
 @import url('landing.css');
+
+/* trade section styling */
+.trade-section {
+    margin-top: 20px;
+}
+
+.title {
+    font-size: 24px;
+    color: #333;
+}
+/* search bar styling */
+.search-bar {
+    margin-bottom: 20px;
+}
+
+#search {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+/* crypto list styling */
+.crypto-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.crypto-list li {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+}
+/* buy/sell form styling */
+#tradeForm {
+    margin-top: 20px;
+}
+
+#tradeForm label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#tradeForm select,
+#tradeForm input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#tradeForm .btn {
+    background-color: #6c5ce7;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#tradeForm .btn:hover {
+    background-color: #574b90;
+}
