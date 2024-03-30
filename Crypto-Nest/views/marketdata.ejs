@@ -32,6 +32,24 @@
         <button id="applyFiltersBtn">Apply Filters</button>
     </div>
 
+    <!-- Sort options -->
+    <div class="sort-options">
+        <label for="sortCriteria">Sort By:</label>
+        <select id="sortCriteria">
+            <option value="marketCap">Market Cap</option>
+            <option value="volume">Volume</option>
+            <option value="percentageChange">Percentage Change</option>
+        </select>
+    
+        <label for="sortOrder">Order:</label>
+        <select id="sortOrder">
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+        </select>
+    
+        <button id="applySortBtn">Apply Sort</button>
+    </div>
+
     <!-- Cryptocurrency listings -->
     <div id="cryptoList" class="crypto-list">
         <!-- Cryptocurrency listings will be dynamically generated here -->
