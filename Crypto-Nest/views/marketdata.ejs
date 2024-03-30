@@ -1,12 +1,40 @@
 <%- include('partials/header') %>
 
-<!-- Navigation bar -->
-<nav class="navbar">
-    <ul>
-        <li><a href="/home">Home</a></li>
-        <li><a href="/portfolio">Portfolio</a></li>
-        <li><a href="/marketdata">Trade</a></li>
-    </ul>
-</nav>
+    <!-- Navigation bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/portfolio">Portfolio</a></li>
+            <li><a href="/marketdata">Trade</a></li>
+        </ul>
+    </nav>
+
+    <!-- Search bar -->
+    <div class="search-bar">
+        <input type="text" id="search" placeholder="Search for cryptocurrencies">
+        <button id="searchBtn">Search</button>
+    </div>
+
+    <!-- Filter options -->
+    <div class="filter-options">
+        <label for="marketCap">Market Cap:</label>
+        <input type="number" id="minMarketCap" placeholder="Min">
+        <input type="number" id="maxMarketCap" placeholder="Max">
+
+        <label for="volume">Volume:</label>
+        <input type="number" id="minVolume" placeholder="Min">
+        <input type="number" id="maxVolume" placeholder="Max">
+
+        <label for="percentageChange">Percentage Change (24h):</label>
+        <input type="number" id="minPercentageChange" placeholder="Min">
+        <input type="number" id="maxPercentageChange" placeholder="Max">
+
+        <button id="applyFiltersBtn">Apply Filters</button>
+    </div>
+
+    <!-- Cryptocurrency listings -->
+    <div id="cryptoList" class="crypto-list">
+        <!-- Cryptocurrency listings will be dynamically generated here -->
+    </div>
 
     <%- include('partials/footer') %>
