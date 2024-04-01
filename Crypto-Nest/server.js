@@ -5,12 +5,10 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const session = require("express-session");
 const passport = require("passport");
-const axios = require("axios");
 
 require("dotenv").config();
 require("./config/database");
 require("./config/passport");
-
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");

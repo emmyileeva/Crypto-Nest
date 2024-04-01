@@ -46,19 +46,46 @@
             <option value="volume">Volume</option>
             <option value="percentageChange">Percentage Change</option>
         </select>
-    
+
         <label for="sortOrder">Order:</label>
         <select id="sortOrder">
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
         </select>
-    
+
         <button id="applySortBtn">Apply Sort</button>
     </div>
 
-    <!-- Cryptocurrency listings -->
-    <div id="cryptoList" class="crypto-list">
-        <!-- Cryptocurrency listings will be dynamically generated here -->
+    <!-- Display market data -->
+    <div class="market-data">
+        <h2>Market Data</h2>
+        <ul>
+            <% marketData.forEach(coin=> { %>
+                <li>
+                    <h3>
+                        <%= coin.name %>
+                    </h3>
+                    <p>Symbol: <%= coin.symbol %>
+                    </p>
+                    <p>Price: <%= coin.current_price %> USD</p>
+                    <p>Market Cap: <%= coin.market_cap %> USD</p>
+                    <p>High (24h): <%= coin.high_24h %> USD</p>
+                    <p>Low (24h): <%= coin.low_24h %> USD</p>
+                    <p>Price Change (24h): <%= coin.price_change_24h %> USD</p>
+                    <p>Market Cap Rank: <%= coin.market_cap_rank %>
+                    </p>
+                    <p>Circulating Supply: <%= coin.circulating_supply %>
+                    </p>
+                    <p>Total Volume: <%= coin.total_volume %>
+                    </p>
+                    <p>All-Time High: <%= coin.ath %> USD (on <%= coin.ath_date %>)</p>
+                    <p>All-Time Low: <%= coin.atl %> USD (on <%= coin.atl_date %>)</p>
+                    <% if (coin.roi) { %>
+                        <p>ROI: <%= coin.roi.times %> times (<%= coin.roi.currency %>)</p>
+                        <% } %>
+                </li>
+                <% }); %>
+        </ul>
     </div>
 
     <%- include('partials/footer') %>
