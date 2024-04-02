@@ -4,9 +4,9 @@ const cryptocurrencyHolding = require("../models/cryptocurrencyHolding");
 const create = async (req, res) => {
   try {
     const newHolding = await cryptocurrencyHolding.create(req.body);
-    res.status(201).json(newHolding);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.send(newHolding);
+  } catch (err) {
+    console.error(err);
   }
 };
 
@@ -14,9 +14,9 @@ const create = async (req, res) => {
 const list = async (req, res) => {
   try {
     const holdings = await cryptocurrencyHolding.find({});
-    res.status(200).json(holdings);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.render("trade", { holdings });
+  } catch (err) {
+    console.error(err);
   }
 };
 
@@ -24,9 +24,9 @@ const list = async (req, res) => {
 const show = async (req, res) => {
   try {
     const holding = await cryptocurrencyHolding.findById(req.params.id);
-    res.status(200).json(holding);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.render("trade", { holding });
+  } catch (err) {
+    console.error(err);
   }
 };
 
@@ -38,28 +38,28 @@ const update = async (req, res) => {
       req.body,
       { new: true }
     );
-    res.status(200).json(updatedHolding);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.send(updatedHolding);
+  } catch (err) {
+    console.error(err);
   }
 };
 
 // delete a single holding from portfolio
 const deleteHolding = async (req, res) => {
-    try {
-        const deletedHolding = await cryptocurrencyHolding.findByIdAndDelete(
-            req.params.id
-        );
-        res.status(200).json(deletedHolding);
-    } catch (error) {
-        res.status(400).json({ error: error.message });
-    }
+  try {
+    const deletedHolding = await cryptocurrencyHolding.findByIdAndDelete(
+      req.params.id
+    );
+    res.send(deletedHolding);
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 module.exports = {
-    create,
-    list,
-    show,
-    update,
-    deleteHolding
-    };  
+  create,
+  list,
+  show,
+  update,
+  deleteHolding,
+};

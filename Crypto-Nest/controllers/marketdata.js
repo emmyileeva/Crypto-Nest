@@ -35,5 +35,5 @@ const getMarketData = async (req, res, next) => {
 };
 
 module.exports = {
-  getMarketData,
+    getMarketData,
 };
