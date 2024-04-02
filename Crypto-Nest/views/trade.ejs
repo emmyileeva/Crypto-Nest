@@ -19,34 +19,68 @@
     <section class="trade-section">
         <h2 class="title">Trade Cryptocurrency</h2>
 
-        <!-- Search bar -->
-        <div class="search-bar">
-            <input type="text" id="search" placeholder="Search">
-        </div>
-
-        <!-- Cryptocurrency list -->
-        <ul id="cryptoList" class="crypto-list">
-        </ul>
-
-        <!-- Buy/Sell form -->
-        <form id="tradeForm">
+        <!-- buy form -->
+        <h2>Buy</h2>
+        <form action="/buy" method="post">
             <label for="crypto">Cryptocurrency:</label>
             <select id="crypto" name="crypto">
-                <% cryptocurrencies.forEach(crypto=> { %>
-                    <option value="<%= crypto.id %>">
-                        <%= crypto.name %>
-                    </option>
-                    <% }); %>
+                    <% cryptocurrencies.forEach(crypto=> { %>
+                        <option value="<%= crypto.id %>">
+                            <%= crypto.name %>
+                        </option>
+                        <% }); %>
             </select>
             <label for="quantity">Quantity:</label>
             <input type="number" id="quantity" name="quantity" required>
-            <label for="action">Action:</label>
-            <select id="action" name="action">
-                <option value="buy">Buy</option>
-                <option value="sell">Sell</option>
-            </select>
-            <button type="submit" class="btn">Submit</button>
+            <button type="submit">Buy</button>
         </form>
+
+        <!-- sell form -->
+        <h2>Sell</h2>
+        <form action="/sell" method="post">
+            <label for="crypto">Cryptocurrency:</label>
+            <select id="crypto" name="crypto">
+                    <% cryptocurrencies.forEach(crypto=> { %>
+                        <option value="<%= crypto.id %>">
+                            <%= crypto.name %>
+                        </option>
+                        <% }); %>
+            </select>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" required>
+            <button type="submit">Sell</button>
+        </form>
+
+        <!-- Cryptocurrency list -->
+        <h2>Cryptocurrencies</h2>
+        <ul 
+           <% marketData.forEach(coin=> { %>
+                <li>
+                    <h3>
+                        <%= coin.name %>
+                    </h3>
+                    <p>Symbol: <%= coin.symbol %>
+                    </p>
+                    <p>Price: <%= coin.current_price %> USD</p>
+                    <p>Market Cap: <%= coin.market_cap %> USD</p>
+                    <p>High (24h): <%= coin.high_24h %> USD</p>
+                    <p>Low (24h): <%= coin.low_24h %> USD</p>
+                    <p>Price Change (24h): <%= coin.price_change_24h %> USD</p>
+                    <p>Market Cap Rank: <%= coin.market_cap_rank %>
+                    </p>
+                    <p>Circulating Supply: <%= coin.circulating_supply %>
+                    </p>
+                    <p>Total Volume: <%= coin.total_volume %>
+                    </p>
+                    <p>All-Time High: <%= coin.ath %> USD (on <%= coin.ath_date %>)</p>
+                    <p>All-Time Low: <%= coin.atl %> USD (on <%= coin.atl_date %>)</p>
+                    <% if (coin.roi) { %>
+                        <p>ROI: <%= coin.roi.times %> times (<%= coin.roi.currency %>)</p>
+                        <% } %>
+                </li>
+                <% }); %>
+        </ul>
+
     </section>
 
     <%- include('partials/footer') %>

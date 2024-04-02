@@ -1,18 +1,21 @@
 const express = require("express");
 const router = express.Router();
 const tradesController = require("../controllers/trades");
+const marketdataController = require("../controllers/marketdata");
 const ensureLoggedIn = require("../config/ensureLoggedIn");
 const axios = require("axios");
 
-
-// Route to get all cryptocurrencies
-router.get("/", async (req, res, next) => {
+// Route to render trade.ejs and pass marketData and cryptocurrencies
+router.get("/", ensureLoggedIn, async (req, res, next) => {
   try {
-    const response = await axios.get(
-      "https://api.coingecko.com/api/v3/coins/markets?ids=bitcoin,ethereum,litecoin,ripple,dogecoin&vs_currency=usd"
-    );
-    const cryptocurrencies = response.data;
-    res.render("trade", { cryptocurrencies });
+    // Call the getMarketData function from marketdataController
+    const marketData = await marketdataController.getMarketData(req, res, next);
+    // get all cryptocurrencies
+     const response = await axios.get(
+       "https://api.coingecko.com/api/v3/coins/markets?ids=bitcoin,ethereum,litecoin,ripple,dogecoin&vs_currency=usd"
+     );
+     const cryptocurrencies = response.data;
+    res.render("trade", { marketData, cryptocurrencies });
   } catch (error) {
     next(error);
   }
