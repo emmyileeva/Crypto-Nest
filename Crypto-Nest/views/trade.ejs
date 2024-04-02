@@ -19,29 +19,27 @@
     <section class="trade-section">
         <h2 class="title">Trade Cryptocurrency</h2>
 
-    <!-- Display Holdings -->
-    <h2>Your Holdings</h2>
-    <ul>
-        <% holdings.forEach(holding=> { %>
-            <li>
-                <h3>
-                    <%= holding.name %>
-                </h3>
-                <p>Quantity: <%= holding.quantity %>
-                </p>
-                <form action="/trade/<%= holding._id %>/delete" method="POST">
-                    <button type="submit">Delete</button>
-                </form>
-                <a href="/trade/<%= holding._id %>/edit">Edit</a>
-            </li>
-            <% }); %>
-    </ul>
-
-
+        <!-- Display Holdings -->
+        <h2>Your Holdings</h2>
+        <ul>
+            <% holdings.forEach(holding=> { %>
+                <li>
+                    <h3>
+                        <%= holding.name %>
+                    </h3>
+                    <p>Quantity: <%= holding.quantity %>
+                    </p>
+                    <form action="/trade/<%= holding._id %>/delete" method="DELETE">
+                        <button type="submit">Delete</button>
+                    </form>
+                    <a href="/trade/<%= holding._id %>/edit">Edit</a>
+                </li>
+                <% }); %>
+        </ul>
 
         <!-- buy form -->
         <h2>Buy</h2>
-        <form action="/buy" method="post">
+        <form action="/trades" method="post">
             <label for="crypto">Cryptocurrency:</label>
             <select id="crypto" name="crypto">
                 <% cryptocurrencies.forEach(crypto=> { %>
@@ -50,7 +48,7 @@
                     </option>
                     <% }); %>
             </select>
-             <label for="usdAmount">Amount (USD):</label>
+            <label for="usdAmount">Amount (USD):</label>
             <div class="symbol">
                 <span class="money-symbol">$</span>
                 <input type="number" id="usdAmount" name="usdAmount" step="0.01" min="0.01" required>
@@ -69,7 +67,7 @@
                     </option>
                     <% }); %>
             </select>
-             <label for="usdAmount">Amount (USD):</label>
+            <label for="usdAmount">Amount (USD):</label>
             <div class="symbol">
                 <span class="money-symbol">$</span>
                 <input type="number" id="usdAmount" name="usdAmount" step="0.01" min="0.01" required>
@@ -80,31 +78,31 @@
         <!-- Cryptocurrency list -->
         <h2>Cryptocurrencies</h2>
         <ul>
-             <% marketData.forEach(coin=> { %>
-            <li>
-                <h3>
-                    <%= coin.name %>
-                </h3>
-                <p>Symbol: <%= coin.symbol %>
-                </p>
-                <p>Price: <%= coin.current_price %> USD</p>
-                <p>Market Cap: <%= coin.market_cap %> USD</p>
-                <p>High (24h): <%= coin.high_24h %> USD</p>
-                <p>Low (24h): <%= coin.low_24h %> USD</p>
-                <p>Price Change (24h): <%= coin.price_change_24h %> USD</p>
-                <p>Market Cap Rank: <%= coin.market_cap_rank %>
-                </p>
-                <p>Circulating Supply: <%= coin.circulating_supply %>
-                </p>
-                <p>Total Volume: <%= coin.total_volume %>
-                </p>
-                <p>All-Time High: <%= coin.ath %> USD (on <%= coin.ath_date %>)</p>
-                <p>All-Time Low: <%= coin.atl %> USD (on <%= coin.atl_date %>)</p>
-                <% if (coin.roi) { %>
-                    <p>ROI: <%= coin.roi.times %> times (<%= coin.roi.currency %>)</p>
-                    <% } %>
-            </li>
-            <% }); %>
+            <% marketData.forEach(coin=> { %>
+                <li>
+                    <h3>
+                        <%= coin.name %>
+                    </h3>
+                    <p>Symbol: <%= coin.symbol %>
+                    </p>
+                    <p>Price: <%= coin.current_price %> USD</p>
+                    <p>Market Cap: <%= coin.market_cap %> USD</p>
+                    <p>High (24h): <%= coin.high_24h %> USD</p>
+                    <p>Low (24h): <%= coin.low_24h %> USD</p>
+                    <p>Price Change (24h): <%= coin.price_change_24h %> USD</p>
+                    <p>Market Cap Rank: <%= coin.market_cap_rank %>
+                    </p>
+                    <p>Circulating Supply: <%= coin.circulating_supply %>
+                    </p>
+                    <p>Total Volume: <%= coin.total_volume %>
+                    </p>
+                    <p>All-Time High: <%= coin.ath %> USD (on <%= coin.ath_date %>)</p>
+                    <p>All-Time Low: <%= coin.atl %> USD (on <%= coin.atl_date %>)</p>
+                    <% if (coin.roi) { %>
+                        <p>ROI: <%= coin.roi.times %> times (<%= coin.roi.currency %>)</p>
+                        <% } %>
+                </li>
+                <% }); %>
         </ul>
 
     </section>

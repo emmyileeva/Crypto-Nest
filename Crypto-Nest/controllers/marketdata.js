@@ -1,9 +1,16 @@
 const axios = require("axios");
 
 // Function to get market data from the API
-const getMarketData = async (req, res, next) => {
+const getMarketData = async (req, res, next, searchQuery = null) => {
   try {
-    //query parameters
+    let apiUrl = "https://api.coingecko.com/api/v3/coins/markets";
+
+    // If searchQuery is provided, construct search API URL
+    if (searchQuery) {
+      apiUrl = "https://api.coingecko.com/api/v3/coins/markets";
+    }
+
+    // Set query parameters for general market data or search query
     const params = {
       vs_currency: "usd",
       order: "market_cap_desc",
@@ -13,19 +20,20 @@ const getMarketData = async (req, res, next) => {
       price_change_percentage: "1h,24h,7d",
       locale: "en",
       precision: "2",
+      ...(searchQuery && { q: searchQuery }), // Add search query if provided
     };
+
     // Make a GET request to the API
-    const response = await axios.get(
-      "https://api.coingecko.com/api/v3/coins/markets",
-      {
-        headers: {
-          "x-cg-demo-api-key": "CG-RwgLCSWJH4cMYrex7AsjxVo7",
-        },
-        params: params, // pass the params object to the API
-      }
-    );
+    const response = await axios.get(apiUrl, {
+      headers: {
+        "x-cg-demo-api-key": "CG-RwgLCSWJH4cMYrex7AsjxVo7",
+      },
+      params: params, // pass the params object to the API
+    });
+
     // extract the data from the response
     const marketData = response.data;
+
     // send response to the client
     return marketData;
   } catch (error) {
@@ -35,5 +43,5 @@ const getMarketData = async (req, res, next) => {
 };
 
 module.exports = {
-    getMarketData,
+  getMarketData,
 };
