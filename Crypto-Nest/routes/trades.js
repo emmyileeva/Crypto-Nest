@@ -21,19 +21,25 @@ router.get("/", ensureLoggedIn, async (req, res, next) => {
   }
 });
 
-//route to create a new trade
-router.post("/", ensureLoggedIn, tradesController.create);
+//route to create a new trade(buying)
+router.post("/buy", ensureLoggedIn, tradesController.create);
 
-// Route to get all holdings in the portfolio
+//route to create a new trade(selling)
+router.post("/sell", ensureLoggedIn, tradesController.create);
+
+// Route to get all holdings
 router.get("/", ensureLoggedIn, tradesController.list);
 
-// Route to get a single holding from the portfolio
+// Route to get a single holding
 router.get("/:id", ensureLoggedIn, tradesController.show);
 
-// Route to update a single holding in the portfolio
+// Route to render holding update form
+router.get("/:id/edit", ensureLoggedIn, tradesController.edit);
+
+// Route to update a single holding
 router.put("/:id", ensureLoggedIn, tradesController.update);
 
-// Route to delete a single holding from the portfolio
+// Route to delete a single holding
 router.delete("/:id", ensureLoggedIn, tradesController.deleteHolding);
 
 

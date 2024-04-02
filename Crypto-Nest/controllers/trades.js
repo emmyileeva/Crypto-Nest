@@ -1,6 +1,6 @@
 const cryptocurrencyHolding = require("../models/cryptocurrencyHolding");
 
-// add new holding to portfolio
+// add new holding
 const create = async (req, res) => {
   try {
     const newHolding = await cryptocurrencyHolding.create(req.body);
@@ -10,7 +10,7 @@ const create = async (req, res) => {
   }
 };
 
-// get all holdings in portfolio
+// get all holdings
 const list = async (req, res) => {
   try {
     const holdings = await cryptocurrencyHolding.find({});
@@ -20,7 +20,7 @@ const list = async (req, res) => {
   }
 };
 
-// get a single holding from portfolio
+// get a single holding
 const show = async (req, res) => {
   try {
     const holding = await cryptocurrencyHolding.findById(req.params.id);
@@ -30,7 +30,7 @@ const show = async (req, res) => {
   }
 };
 
-// update a single holding in portfolio
+// update a single holding
 const update = async (req, res) => {
   try {
     const updatedHolding = await cryptocurrencyHolding.findByIdAndUpdate(
@@ -44,7 +44,17 @@ const update = async (req, res) => {
   }
 };
 
-// delete a single holding from portfolio
+// edit a single holding
+const edit = async (req, res) => {
+  try {
+    const holding = await cryptocurrencyHolding.findById(req.params.id);
+    res.render("trade", { holding });
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+// delete a single holding
 const deleteHolding = async (req, res) => {
   try {
     const deletedHolding = await cryptocurrencyHolding.findByIdAndDelete(
@@ -60,6 +70,7 @@ module.exports = {
   create,
   list,
   show,
-  update,
+    update,
+  edit,
   deleteHolding,
 };
