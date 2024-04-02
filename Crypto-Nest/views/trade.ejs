@@ -19,23 +19,24 @@
     <section class="trade-section">
         <h2 class="title">Trade Cryptocurrency</h2>
 
-        <!-- Display Holdings -->
-        <h2>Your Holdings</h2>
-        <ul>
-            <% holdings.forEach(holding=> { %>
-                <li>
-                    <h3>
-                        <%= holding.name %>
-                    </h3>
-                    <p>Quantity: <%= holding.quantity %>
-                    </p>
-                    <form action="/trade/<%= holding._id %>/delete" method="POST">
-                        <button type="submit">Delete</button>
-                    </form>
-                    <a href="/trade/<%= holding._id %>/edit">Edit</a>
-                </li>
-                <% }); %>
-        </ul>
+    <!-- Display Holdings -->
+    <h2>Your Holdings</h2>
+    <ul>
+        <% holdings.forEach(holding=> { %>
+            <li>
+                <h3>
+                    <%= holding.name %>
+                </h3>
+                <p>Quantity: <%= holding.quantity %>
+                </p>
+                <form action="/trade/<%= holding._id %>/delete" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
+                <a href="/trade/<%= holding._id %>/edit">Edit</a>
+            </li>
+            <% }); %>
+    </ul>
+
 
 
         <!-- buy form -->

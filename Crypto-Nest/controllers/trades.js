@@ -70,7 +70,7 @@ module.exports = {
   create,
   list,
   show,
-    update,
+  update,
   edit,
   deleteHolding,
 };
