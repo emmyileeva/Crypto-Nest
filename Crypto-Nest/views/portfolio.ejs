@@ -4,7 +4,7 @@
     <nav class="navbar">
         <ul>
             <li><a href="/home">Home</a></li>
-            <li><a href="/trade">Trade</a></li>
+            <li><a href="/trades">Trade</a></li>
             <li><a href="/marketdata">Market Data</a></li>
         </ul>
     </nav>
@@ -21,8 +21,8 @@
         <div class="summary-info">
             <div class="total-portfolio-value">
                 <h3>Total Portfolio Balance</h3>
-                
-                
+
+
             </div>
         </div>
         <div class="graphs">
@@ -30,31 +30,31 @@
         </div>
     </section>
 
-<!-- crypto holdings -->
-<section class="crypto-holdings">
-    <h2>Cryptocurrency Holdings</h2>
-    <div class="holdings-list">
-        <table>
-            <thead>
-                <tr>
-                    <th>Cryptocurrency</th>
-                    <th>Amount</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% holdings.forEach(holding=> { %>
+    <!-- crypto holdings -->
+    <section class="crypto-holdings">
+        <h2>Cryptocurrency Holdings</h2>
+        <div class="holdings-list">
+            <table>
+                <thead>
                     <tr>
-                        <td>
-                            <%= holding.cryptocurrency %>
-                        </td>
-                        <td>
-                            <%= holding.amount %>
-                        </td> 
+                        <th>Cryptocurrency</th>
+                        <th>Amount(USD)</th>
                     </tr>
-                    <% }); %>
-            </tbody>
-        </table>
-    </div>
-</section>
+                </thead>
+                <tbody>
+                    <% holdings.forEach(holding=> { %>
+                        <tr>
+                            <td>
+                                <%= holding.cryptocurrency %>
+                            </td>
+                            <td>
+                                <%= holding.amount %>
+                            </td>
+                        </tr>
+                        <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </section>
 
     <%- include('partials/footer') %>
