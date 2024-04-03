@@ -47,7 +47,7 @@ app.use(function (req, res, next) {
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.use("/trade", tradesRouter);
+app.use("/trades", tradesRouter);
 app.use("/marketdata", marketdataRouter);
 app.use("/portfolio", portfolioRouter);
 app.use("/settings", settingsRouter);

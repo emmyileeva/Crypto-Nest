@@ -3,29 +3,27 @@
 
 /* search bar styling */
 .search-bar {
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .search-bar input[type="text"] {
-    width: 100%;
+    width: 200px;
     padding: 10px;
-    font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
 .search-bar button {
     padding: 10px 20px;
-    font-size: 16px;
     border: none;
     border-radius: 5px;
-    background-color: #6c5ce7;
+    background-color: #333;
     color: #fff;
     cursor: pointer;
 }
 
 .search-bar button:hover {
-    background-color: #574b90;
+    background-color: #555;
 }
 /* filter options styling */
 .filter-options {
@@ -86,9 +84,47 @@
 .sort-options button:hover {
     background-color: #574b90;
 }
-/* crypto list styling */
 
-.crypto-list {
-    list-style-type: none;
-    padding: 0;
+/* Market data section styling */
+.market-data {
+    margin-top: 20px;
+}
+
+.market-data h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Crypto item styling */
+.crypto-item {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.crypto-item h3 {
+    font-size: 20px;
+    color: #333;
+    margin-top: 0;
+}
+
+.crypto-info {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.crypto-info p {
+    flex: 1 1 50%;
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
+}
+
+.crypto-info p:nth-child(odd) {
+    font-weight: bold;
+    color: #333;
 }

@@ -14,7 +14,7 @@ const getMarketData = async (req, res, next, searchQuery = null) => {
     const params = {
       vs_currency: "usd",
       order: "market_cap_desc",
-      per_page: 5,
+      per_page: 3,
       page: 1,
       sparkline: false,
       price_change_percentage: "1h,24h,7d",

@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const ensureLoggedIn = require("../config/ensureLoggedIn");
 const marketdataController = require("../controllers/marketdata");
-const axios = require("axios");
+
 
 // Route to render marketdata.ejs and pass marketData
 router.get("/", ensureLoggedIn, async (req, res, next) => {

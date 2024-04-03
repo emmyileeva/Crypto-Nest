@@ -37,43 +37,48 @@
                 <% }); %>
         </ul>
 
-        <!-- buy form -->
-        <h2>Buy</h2>
-        <form action="/trades" method="post">
-            <label for="crypto">Cryptocurrency:</label>
-            <select id="crypto" name="crypto">
-                <% cryptocurrencies.forEach(crypto=> { %>
-                    <option value="<%= crypto.id %>">
-                        <%= crypto.name %>
-                    </option>
-                    <% }); %>
-            </select>
-            <label for="usdAmount">Amount (USD):</label>
-            <div class="symbol">
-                <span class="money-symbol">$</span>
-                <input type="number" id="usdAmount" name="usdAmount" step="0.01" min="0.01" required>
-            </div>
-            <button type="submit">Buy</button>
-        </form>
+<!-- buy form -->
+<h2>Buy</h2>
+<form action="/trades" method="post"> 
+    <label for="crypto">Cryptocurrency:</label>
+    <select id="crypto" name="cryptoType"> 
+        <% cryptocurrencies.forEach(crypto=> { %>
+            <option value="<%= crypto.id %>">
+                <%= crypto.name %>
+            </option>
+            <% }); %>
+    </select>
+    <label for="usdAmount">Amount (USD):</label>
+    <div class="symbol">
+        <span class="money-symbol">$</span>
+        <input type="number" id="usdAmount" name="amount" step="0.01" min="0.01" required>
+    </div>
+    <input type="hidden" name="userId" value="<%= userId %>"> 
+    <input type="hidden" name="price" value="10"> 
+    <button type="submit">Buy</button>
+</form>
 
-        <!-- sell form -->
-        <h2>Sell</h2>
-        <form action="/sell" method="post">
-            <label for="crypto">Cryptocurrency:</label>
-            <select id="crypto" name="crypto">
-                <% cryptocurrencies.forEach(crypto=> { %>
-                    <option value="<%= crypto.id %>">
-                        <%= crypto.name %>
-                    </option>
-                    <% }); %>
-            </select>
-            <label for="usdAmount">Amount (USD):</label>
-            <div class="symbol">
-                <span class="money-symbol">$</span>
-                <input type="number" id="usdAmount" name="usdAmount" step="0.01" min="0.01" required>
-            </div>
-            <button type="submit">Sell</button>
-        </form>
+<!-- sell form -->
+<h2>Sell</h2>
+<form action="/trades/sell<%= user._id %>" method="put">
+    <label for="crypto">Cryptocurrency:</label>
+    <select id="crypto" name="cryptoType">
+        <% cryptocurrencies.forEach(crypto=> { %>
+            <option value="<%= crypto.id %>">
+                <%= crypto.name %>
+            </option>
+            <% }); %>
+    </select>
+    <label for="usdAmount">Amount (USD):</label>
+    <div class="symbol">
+        <span class="money-symbol">$</span>
+        <input type="number" id="usdAmount" name="usdAmount" step="0.01" min="0.01" required>
+    </div>
+        <input type="hidden" name="userId" value="<%= userId %>"> 
+    <input type="hidden" name="price" value="10"> 
+    <button type="submit">Sell</button>
+</form>
+
 
         <!-- Cryptocurrency list -->
         <h2>Cryptocurrencies</h2>
