@@ -15,9 +15,9 @@ router.get("/", ensureLoggedIn, async (req, res, next) => {
     const response = await axios.get(
       "https://api.coingecko.com/api/v3/coins/markets?ids=bitcoin,ethereum,litecoin,ripple,dogecoin&vs_currency=usd"
     );
-    const cryptocurrencies = response.data;
-    const holdings = await cryptocurrencyHolding.find({});
     const userId = req.user._id;
+    const cryptocurrencies = response.data;
+    const holdings = await cryptocurrencyHolding.find({"user": userId });
     res.render("trade", { marketData, cryptocurrencies, holdings, userId });
   } catch (error) {
     next(error);
@@ -28,6 +28,6 @@ router.get("/", ensureLoggedIn, async (req, res, next) => {
 router.post('/', tradesController.create);
 
 // Handle the sell request
-router.put('/sell/:id', tradesController.update);
+router.get("/sell/:id", tradesController.update);
 
 module.exports = router;

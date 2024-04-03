@@ -5,6 +5,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const session = require("express-session");
 const passport = require("passport");
+const methodOverride = require("method-override");
 
 require("dotenv").config();
 require("./config/database");
@@ -51,6 +52,7 @@ app.use("/trades", tradesRouter);
 app.use("/marketdata", marketdataRouter);
 app.use("/portfolio", portfolioRouter);
 app.use("/settings", settingsRouter);
+app.use(methodOverride("_method"));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
