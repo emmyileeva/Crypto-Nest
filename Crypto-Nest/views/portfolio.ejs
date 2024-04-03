@@ -21,7 +21,8 @@
         <div class="summary-info">
             <div class="total-portfolio-value">
                 <h3>Total Portfolio Balance</h3>
-                <p>$10,000</p>
+                
+                
             </div>
         </div>
         <div class="graphs">
@@ -29,30 +30,31 @@
         </div>
     </section>
 
-    <!-- crypto holdings -->
-    <section class="crypto-holdings">
-        <h2>Cryptocurrency Holdings</h2>
-        <div class="holdings-list">
-            <table>
-                <thead>
+<!-- crypto holdings -->
+<section class="crypto-holdings">
+    <h2>Cryptocurrency Holdings</h2>
+    <div class="holdings-list">
+        <table>
+            <thead>
+                <tr>
+                    <th>Cryptocurrency</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% holdings.forEach(holding=> { %>
                     <tr>
-                        <th>Cryptocurrency</th>
-                        <th>Quantity</th>
-                        <th>Current Value</th>
-                        <th>Percentage Change (24h)</th>
+                        <td>
+                            <%= holding.cryptocurrency %>
+                        </td>
+                        <td>
+                            <%= holding.amount %>
+                        </td> 
                     </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Bitcoin</td>
-                        <td>5 BTC</td>
-                        <td>$50,000</td>
-                        <td>+10%</td>
-                    </tr>
-                    <!-- Add more rows -->
-                </tbody>
-            </table>
-        </div>
-    </section>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+</section>
 
     <%- include('partials/footer') %>
