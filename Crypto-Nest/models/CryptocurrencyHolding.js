@@ -7,6 +7,7 @@ const cryptocurrencyHoldingSchema = new Schema({
     amount: Number,
     purchasePrice: Number,
     purchaseDate: Date,
+    sellDate: Date,
 });
 
 module.exports = mongoose.model('CryptocurrencyHolding', cryptocurrencyHoldingSchema);

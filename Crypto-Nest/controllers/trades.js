@@ -24,13 +24,15 @@ const create = async (req, res) => {
 // sell
 const update = async (req, res) => {
     try {
-      // Find the holding record to update
-        const holding = await CryptocurrencyHolding.findByIdAndUpdate({"user": req.params.id, "cryptocurrency": req.body.cryptoType });
-        // Update the holding record
-        console.log(holding);
-      holding.amount -= req.body.usdAmount; 
+      // Create a new holding record for the sell transaction
+      const newHolding = new CryptocurrencyHolding({
+        user: req.params.id,
+        cryptocurrency: req.body.cryptoType,
+        amount: -req.body.usdAmount, // Set amount as negative for sell
+        sellDate: new Date(), // Set sell date
+      });
       // Save the updated holding record
-      await holding.save();
+      await newHolding.save();
       // Redirect to the portfolio page
       res.redirect("/portfolio");
     } catch (err) {

@@ -19,22 +19,33 @@
     <section class="trade-section">
         <h2 class="title">Trade Cryptocurrency</h2>
 
-        <!-- Display Holdings -->
-        <h2>History</h2>
-        <ul>
-            <% holdings.forEach(holding=> { %>
-                <li>
-                    <h3> Bought
-                        <%= holding.cryptocurrency %>
-                    </h3>
-                    <p>Amount(USD): $<%= holding.amount %>
+<!-- Holdings History -->
+<h2>History</h2>
+<ul>
+    <% holdings.forEach(holding=> { %>
+        <li>
+            <h3>
+                <% if (holding.sellDate) { %>
+                    Sold <%= holding.cryptocurrency %>
+                        <% } else { %>
+                            Bought <%= holding.cryptocurrency %>
+                                <% } %>
+            </h3>
+            <p>Amount(USD): $<%= holding.amount %>
+            </p>
+            <% if (!holding.sellDate) { %>
+                <p>Purchase Date: <%= new Date(holding.purchaseDate).toLocaleDateString('en-US', { month: 'short' ,
+                        day: 'numeric' , year: 'numeric' }) %>
+                </p>
+                <% } else { %>
+                    <p>Sell Date: <%= new Date(holding.sellDate).toLocaleDateString('en-US', { month: 'short' ,
+                            day: 'numeric' , year: 'numeric' }) %>
                     </p>
-                    <p>Purchase Date: <%= new Date(holding.purchaseDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric',
-                            year: 'numeric' }) %>
-                    </p>
-                </li>
-                <% }); %>
-        </ul>
+                    <% } %>
+        </li>
+        <% }); %>
+</ul>
+
 
         <!-- buy form -->
         <h2>Buy</h2>
@@ -59,7 +70,7 @@
 
         <!-- sell form -->
         <h2>Sell</h2>
-        <form action="/trades/sell/<%= user._id %>" method="get">
+        <form action="/trades/sell/<%= user._id %>?_method=put" method="post">
             <input type="hidden" name="userId" value="<%= user._id %>">
             <label for="crypto">Cryptocurrency:</label>
             <select id="crypto" name="cryptoType">
@@ -76,7 +87,6 @@
             </div>
             <button type="submit">Sell</button>
         </form>
-
 
         <!-- Cryptocurrency list -->
         <h2>Cryptocurrencies</h2>

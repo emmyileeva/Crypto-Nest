@@ -28,6 +28,6 @@ router.get("/", ensureLoggedIn, async (req, res, next) => {
 router.post('/', tradesController.create);
 
 // Handle the sell request
-router.get("/sell/:id", tradesController.update);
+router.put("/sell/:id", tradesController.update);
 
 module.exports = router;
