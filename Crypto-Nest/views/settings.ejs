@@ -11,61 +11,65 @@
         </ul>
     </nav>
     <main class="main">
-        <!-- account settings -->
-        <section class="account-settings">
+        <!-- Account Settings -->
+        <section class="user-profile">
             <h2>Account Settings</h2>
-            <!-- change email -->
-            <div class="change-email">
-                <h3>Change Email</h3>
-                <form id="changeEmailForm">
-                    <label for="newEmail">New Email:</label>
-                    <input type="email" id="newEmail" name="newEmail" required>
-                    <button type="submit" class="btn">Change Email</button>
-                </form>
+            <div class="profile-info">
+                <p>Name: <%= user.name %>
+                </p>
+                <p>Email: <%= user.email %>
+                </p>
+                <img src="<%= user.avatar %>" alt="Avatar">
+            </div>
         </section>
+        <!-- Change Email Form -->
+        <section class="change-email-form">
+            <h2>Change Email</h2>
+            <form action="/settings/change-email" method="POST">
+                <label for="newEmail">New Email:</label>
+                <input type="email" id="newEmail" name="newEmail" required>
+                <button type="submit" class="btn">Change Email</button>
+            </form>
+        </section>
+        </section>
+        <!-- Delete Account Form -->
+        <section class="delete-account-form">
+            <h2>Delete Account</h2>
+            <form action="/settings/delete-account" method="POST">
+                <label for="confirmDelete">Confirm Deletion:</label>
+                <input type="checkbox" id="confirmDelete" name="confirmDelete" required>
+                <button type="submit" class="btn">Delete Account</button>
+            </form>
+        </section>
+        </div>
 
-        <!-- security settings -->
-        <section class="security-settings">
-            <h2>Security Settings</h2>
-            <!-- delete account -->
-            <div class="delete-account">
-                <h3>Delete Account</h3>
-                <form id="deleteAccountForm">
-                    <label for="confirmDelete">Confirm Deletion:</label>
-                    <input type="checkbox" id="confirmDelete" name="confirmDelete" required>
-                    <button type="submit" class="btn">Delete Account</button>
+        <!-- notification settings -->
+        <section class="notification-settings">
+            <!-- notification preferences -->
+            <div class="notification-preferences">
+                <h2>Notification Preferences</h2>
+                <form id="notificationPreferencesForm">
+                    <label for="emailNotifications">Email Notifications:</label>
+                    <input type="checkbox" id="emailNotifications" name="emailNotifications">
+                    <label for="smsNotifications">SMS Notifications:</label>
+                    <input type="checkbox" id="smsNotifications" name="smsNotifications">
+                    <button type="submit" class="btn">Save Preferences</button>
                 </form>
             </div>
+        </section>
 
-            <!-- notification settings -->
-            <section class="notification-settings">
-                <h2>Notification Settings</h2>
-                <!-- notification preferences -->
-                <div class="notification-preferences">
-                    <h3>Notification Preferences</h3>
-                    <form id="notificationPreferencesForm">
-                        <label for="emailNotifications">Email Notifications:</label>
-                        <input type="checkbox" id="emailNotifications" name="emailNotifications">
-                        <label for="smsNotifications">SMS Notifications:</label>
-                        <input type="checkbox" id="smsNotifications" name="smsNotifications">
-                        <button type="submit" class="btn">Save Preferences</button>
-                    </form>
-                </div>
-            </section>
-
-            <!-- privacy settings -->
-            <section class="privacy-settings">
-                <h2>Privacy Settings</h2>
-                <!-- privacy preferences -->
-                <div class="privacy-preferences">
-                    <h3>Privacy Preferences</h3>
-                    <form id="privacyPreferencesForm">
-                        <label for="publicProfile">Public Profile:</label>
-                        <input type="checkbox" id="publicProfile" name="publicProfile">
-                        <label for="dataSharing">Data Sharing:</label>
-                        <input type="checkbox" id="dataSharing" name="dataSharing">
-                        <button type="submit" class="btn">Save Preferences</button>
-                    </form>
-                </div>
+        <!-- privacy settings -->
+        <section class="privacy-settings">
+            <!-- privacy preferences -->
+            <div class="privacy-preferences">
+                <h2>Privacy Preferences</h2>
+                <form id="privacyPreferencesForm">
+                    <label for="publicProfile">Public Profile:</label>
+                    <input type="checkbox" id="publicProfile" name="publicProfile">
+                    <label for="dataSharing">Data Sharing:</label>
+                    <input type="checkbox" id="dataSharing" name="dataSharing">
+                    <button type="submit" class="btn">Save Preferences</button>
+                </form>
+            </div>
     </main>
     <%- include('partials/footer') %>
