@@ -17,6 +17,7 @@ const tradesRouter = require("./routes/trades");
 const marketdataRouter = require("./routes/marketdata");
 const portfolioRouter = require("./routes/portfolio");
 const settingsRouter = require("./routes/settings");
+const homeRouter = require("./routes/home");
 
 var app = express();
 
@@ -53,6 +54,8 @@ app.use("/trades", tradesRouter);
 app.use("/marketdata", marketdataRouter);
 app.use("/portfolio", portfolioRouter);
 app.use("/settings", settingsRouter);
+app.use("/home", homeRouter);
+
 
 
 // catch 404 and forward to error handler

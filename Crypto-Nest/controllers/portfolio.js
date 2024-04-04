@@ -36,7 +36,6 @@ const calculateTotalAmount = async (userId, cryptoType) => {
   }
 };
 
-
 // Function to update holdings based on transactions
 const updateHoldings = async (userId, cryptoType, amount) => {
   try {
@@ -66,7 +65,6 @@ const updateHoldings = async (userId, cryptoType, amount) => {
     console.error(err);
   }
 };
-
 
 module.exports = {
     calculateTotalAmount,

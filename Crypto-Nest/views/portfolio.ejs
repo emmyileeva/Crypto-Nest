@@ -21,8 +21,13 @@
         <div class="summary-info">
             <div class="total-portfolio-value">
                 <h3>Total Portfolio Balance</h3>
-
-
+                <p>
+                    $<% let totalAmount=0; %>
+                        <% holdings.forEach(holding=> { %>
+                            <% totalAmount +=holding.amount; %>
+                                <% }); %>
+                                    <%= totalAmount %>
+                </p>
             </div>
         </div>
         <div class="graphs">
@@ -48,7 +53,7 @@
                                 <%= holding.cryptocurrency %>
                             </td>
                             <td>
-                                <%= holding.amount %>
+                                $<%= holding.amount %>
                             </td>
                         </tr>
                         <% }); %>
