@@ -1,3 +1,4 @@
+
 /* Main section styling */
 #main {
   text-align: center;
@@ -7,12 +8,8 @@
   background-position: center; */
   background: rgb(15, 15, 16);
   background: radial-gradient(circle, rgba(15, 15, 16, 1) 0%, rgba(7, 37, 73, 1) 100%); 
-  .raleway-font {
-      font-family: "Raleway";
-      font-optical-sizing: auto;
-      font-weight: 400;
-      font-style: normal;
-    }
+  font-family: "Raleway", sans-serif;
+  flex-grow: 1;
 }
 
 #main h1 {

@@ -1,11 +1,30 @@
 /* import the landing css page for global styles */
 @import url('landing.css');
 
+/* main styling */
+.main {
+    font-family: "Raleway", sans-serif;
+    text-align: center;
+}
+/* everything else styling */
+.everything {
+    background: rgb(15, 15, 16);
+    background: radial-gradient(circle, rgba(15, 15, 16, 1) 0%, rgba(7, 37, 73, 1) 100%);
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 /* nav bar styling */
 nav {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
+    background: rgb(15, 15, 16);
+    background: radial-gradient(circle, rgba(15, 15, 16, 1) 0%, rgba(7, 37, 73, 1) 100%);
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    font-size: 16px;
 }
 
 nav ul {
@@ -16,53 +35,48 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin-right: 20px;
+    margin-right: 50px;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
+
 }
 
 nav ul li a:hover {
-    color: #ff6b6b;
-}
-/* profile links styling */
-.profile-links {
-    text-align: right;
-    margin-bottom: 20px;
+    color: #ccc;
 }
 
-.profile-links a {
-    color: #333;
-    text-decoration: none;
-    margin-left: 10px;
-}
-
-.profile-links a:hover {
-    text-decoration: underline;
-}
 /* welcome message styling */
-h2 {
-    font-size: 24px;
-    color: #333;
-    margin-top: 20px;
+#welcome {
+    color: #fff;
+    font-size: 35px;
 }
+
 /* crypto holdings section styling */
-#holdings {
-    margin-top: 20px;
+#holdings h2 {
+    font-size: 20px;
+    color: #fff;
+    margin-top: 40px;
 }
 
-#holdings ul {
-    list-style-type: none;
-    padding: 0;
+#holdings p {
+    font-size: 15px;
+    color: #ccc;
 }
 
-#holdings ul li {
-    margin-bottom: 10px;
-    font-size: 18px;
-    color: #333;
+#holdings th {
+    color: #fff;
+    background-color: #124687;
+    text-align: center;
 }
+
+#holdings td {
+    text-align: center;
+    color: #ccc;
+}
+
 /* overview area styling */
 .overview {
     margin-top: 20px;
@@ -70,7 +84,8 @@ h2 {
 
 .overview h3 {
     font-size: 20px;
-    color: #333;
+    color: #fff;
+
 }
 
-/*  */
+

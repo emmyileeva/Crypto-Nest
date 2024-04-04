@@ -1,57 +1,60 @@
 <%- include('partials/header') %>
 
-    <!-- Navigation bar -->
-    <nav>
-        <ul>
-            <li><a href="/trades">Trade</a></li>
-            <li><a href="/portfolio">Portfolio</a></li>
-            <li><a href="/marketdata">Market Data</a></li>
-        </ul>
-    </nav>
+    <div class="main">
+        <!-- Navigation bar -->
+        <nav>
+            <ul>
+                <li><a href="/trades">Trade</a></li>
+                <li><a href="/portfolio">Portfolio</a></li>
+                <li><a href="/marketdata">Market Data</a></li>
+                <!-- Settings and Log Out links -->
+                <li><a class="settings" href="/settings">Settings</a></li>
+                <li><a class="settings" href="/logout">Log Out</a></li>
+            </ul>
+        </nav>
 
-    <!-- Settings and Log Out links -->
-    <div class="profile-links">
-        <a href="/settings">Settings</a>
-        <a href="/logout">Log Out</a>
+        <div class="everything">
+            <!-- welcome message -->
+            <h2 id="welcome"> Welcome, <%= user.name %>!</h2>
+            <!-- Crypto holdings section -->
+            <section id="holdings">
+                <h2>Total Balance </h2>
+                <p>
+                    $<% let totalAmount=0; %>
+                        <% holdings.forEach(holding=> { %>
+                            <% totalAmount +=holding.amount; %>
+                                <% }); %>
+                                    <%= totalAmount %>
+                </p>
+
+                <h2>Cryptocurrency Holdings</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cryptocurrency</th>
+                            <th>Amount(USD)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% holdings.forEach(holding=> { %>
+                            <tr>
+                                <td>
+                                    <%= holding.cryptocurrency %>
+                                </td>
+                                <td>
+                                    $<%= holding.amount %>
+                                </td>
+                            </tr>
+                            <% }); %>
+                    </tbody>
+                </table>
+                <div class="overview">
+                    <h3>Portfolio Overview</h3>
+                    <!-- placeholder for graphs or charts to visualize portfolio performance -->
+                </div>
+            </section>
+        </div>
     </div>
 
-    <h2>Welcome, <%= user.name %>!</h2>
-
-    <!-- Crypto holdings section -->
-    <section id="holdings">
-        <h2>Total Balance </h2>
-        <p>
-            $<% let totalAmount=0; %>
-                <% holdings.forEach(holding=> { %>
-                    <% totalAmount +=holding.amount; %>
-                        <% }); %>
-                            <%= totalAmount %>
-        </p>
-        
-        <h2>Cryptocurrency Holdings</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Cryptocurrency</th>
-                    <th>Amount(USD)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% holdings.forEach(holding=> { %>
-                    <tr>
-                        <td>
-                            <%= holding.cryptocurrency %>
-                        </td>
-                        <td>
-                            $<%= holding.amount %>
-                        </td>
-                    </tr>
-                    <% }); %>
-            </tbody>
-        <div class="overview">
-            <h3>Portfolio Overview</h3>
-            <!-- placeholder for graphs or charts to visualize portfolio performance -->
-        </div>
-    </section>
 
     <%- include('partials/footer') %>
