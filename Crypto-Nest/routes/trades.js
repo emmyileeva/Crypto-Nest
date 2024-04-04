@@ -18,7 +18,6 @@ router.get("/", ensureLoggedIn, async (req, res, next) => {
     const userId = req.user._id;
     const cryptocurrencies = response.data;
     const holdings = await cryptocurrencyHolding.find({ "user": userId });
-    console.log(holdings);
     res.render("trade", { marketData, cryptocurrencies, holdings, userId });
   } catch (error) {
     next(error);
