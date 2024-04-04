@@ -1,47 +1,70 @@
 const axios = require("axios");
 
 // Function to get market data from the API
-const getMarketData = async (req, res, next, searchQuery = null) => {
+const getMarketData = async () => {
   try {
-    let apiUrl = "https://api.coingecko.com/api/v3/coins/markets";
-
-    // If searchQuery is provided, construct search API URL
-    if (searchQuery) {
-      apiUrl = "https://api.coingecko.com/api/v3/coins/markets";
-    }
-
-    // Set query parameters for general market data or search query
+    const apiUrl = "https://api.coingecko.com/api/v3/coins/markets";
     const params = {
       vs_currency: "usd",
       order: "market_cap_desc",
-      per_page: 3,
+      per_page: 10,
       page: 1,
       sparkline: false,
       price_change_percentage: "1h,24h,7d",
       locale: "en",
       precision: "2",
-      ...(searchQuery && { q: searchQuery }), // Add search query if provided
     };
-
-    // Make a GET request to the API
     const response = await axios.get(apiUrl, {
       headers: {
         "x-cg-demo-api-key": "CG-RwgLCSWJH4cMYrex7AsjxVo7",
       },
-      params: params, // pass the params object to the API
+      params: params,
     });
-
-    // extract the data from the response
-    const marketData = response.data;
-
-    // send response to the client
-    return marketData;
+    return response.data;
   } catch (error) {
-    // Pass any errors to the error handler
+    throw error;
+  }
+};
+
+// Function to handle the search request
+const searchCoin = async (req, res, next) => {
+  try {
+    // Get the coin ID from the request body
+    const coinId = req.body.coinId;
+    console.log(coinId);
+    // Define the URLs for the API requests
+    const marketDataUrl = "https://api.coingecko.com/api/v3/coins/markets";
+    const params = {
+      vs_currency: "usd",
+      ids: coinId,
+      order: "market_cap_desc",
+      per_page: 10,
+      page: 1,
+      sparkline: false,
+      price_change_percentage: "1h,24h,7d",
+      locale: "en",
+      precision: "2",
+    };
+    const marketDataResponse = await axios.get(marketDataUrl, {
+      headers: {
+        "x-cg-demo-api-key": "CG-RwgLCSWJH4cMYrex7AsjxVo7",
+      },
+      params: params,
+    });
+    const coinDataUrl = `https://api.coingecko.com/api/v3/coins/${coinId}`;
+    const coinDataResponse = await axios.get(coinDataUrl);
+
+    // Extract data from responses
+    const marketData = marketDataResponse.data;
+    const coinData = coinDataResponse.data;
+    // Render the view with both sets of data
+    res.render("marketdata", { coinData, marketData });
+  } catch (error) {
     next(error);
   }
 };
 
 module.exports = {
   getMarketData,
+  searchCoin,
 };

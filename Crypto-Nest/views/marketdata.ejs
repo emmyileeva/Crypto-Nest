@@ -49,14 +49,19 @@
         </div>
     </div>
 
-
     <!-- Search bar -->
-    <div class="search-bar">
-        <form action="/marketdata/search" method="POST">
-            <input type="text" id="search" name="query" placeholder="Search for cryptocurrencies">
-            <button type="submit">Search</button>
-        </form>
-    </div>
+<div class="search-bar">
+    <form action="/marketdata/search" method="POST">
+        <select type= "text" id="coinId" name="coinId">
+            <% marketData.forEach(coin=> { %>
+                <option value="<%= coin.id %>">
+                    <%= coin.name %>
+                </option>
+                <% }); %>
+        </select>
+        <button type="submit">Search</button>
+    </form>
+</div>
 
     <!-- Filter options -->
     <div class="filter-options">
