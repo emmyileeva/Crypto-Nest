@@ -6,22 +6,24 @@ const calculateTotalAmount = async (userId, cryptoType) => {
     const buyTransactions = await CryptocurrencyHolding.find({
       user: userId,
       cryptocurrency: cryptoType,
+      amount: { $gt: 0 }, // Only positive amounts (buys)
     });
 
     // Calculate the total amount bought
     const totalAmountBought = buyTransactions.reduce((total, transaction) => {
-      return total + Math.max(transaction.amount, 0); // only positive amounts (buys)
+      return total + transaction.amount; // Summing up all buy amounts
     }, 0);
 
     // Find all sell transactions for the specified cryptocurrency and user
     const sellTransactions = await CryptocurrencyHolding.find({
       user: userId,
       cryptocurrency: cryptoType,
+      amount: { $lt: 0 }, // Only negative amounts (sells)
     });
 
     // Calculate the total amount sold
     const totalAmountSold = sellTransactions.reduce((total, transaction) => {
-      return total + Math.min(transaction.amount, 0); // only negative amounts (sells)
+      return total + transaction.amount; // Summing up all sell amounts
     }, 0);
 
     // Calculate the net amount by subtracting the total amount sold from the total amount bought
@@ -33,6 +35,7 @@ const calculateTotalAmount = async (userId, cryptoType) => {
     console.error(err);
   }
 };
+
 
 // Function to update holdings based on transactions
 const updateHoldings = async (userId, cryptoType, amount) => {
@@ -52,7 +55,7 @@ const updateHoldings = async (userId, cryptoType, amount) => {
         user: userId,
         cryptocurrency: cryptoType,
         amount: +amount,
-        purchasePrice: null, // Set as null or default value for now
+        purchasePrice: null, // default value
         purchaseDate: new Date(), // Set the purchase date
       });
       // Save the new holding to the database

@@ -1,12 +1,9 @@
 const CryptocurrencyHolding = require("../models/cryptocurrencyHolding");
-const portfolioController = require("../controllers/portfolio");
-
 
 // buy
 const create = async (req, res) => {
   try {
     const { cryptoType, amount, userId, price } = req.body;
-
     // Create a new holding entry
     const newHolding = new CryptocurrencyHolding({
       user: userId,
@@ -17,8 +14,7 @@ const create = async (req, res) => {
     });
     // Save the new holding to the database
     await newHolding.save();
-    // Update portfolio holdings
-    await portfolioController.updateHoldings(userId, cryptoType, +amount);
+      res.redirect("/trades");
   } catch (err) {
     // Handle errors
     console.error(err);
@@ -38,8 +34,7 @@ const update = async (req, res) => {
     });
     // Save the new holding record
     await newHolding.save();
-    // Update portfolio holdings
-    await portfolioController.updateHoldings(userId, cryptoType, -usdAmount);
+       res.redirect("/trades");
   } catch (err) {
     // Handle errors
     console.error(err);
