@@ -31,14 +31,14 @@
     width: 100px;
     height: 100px;
     margin-top: 20px;
-}
+} 
 
 /* form styling */
-section {
+.settings {
     margin-bottom: 40px;
 }
 
-section h2 {
+.settings h2 {
     margin-bottom: 20px;
 }
 

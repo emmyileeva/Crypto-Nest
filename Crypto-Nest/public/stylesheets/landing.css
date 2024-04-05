@@ -1,13 +1,16 @@
 /* Main section styling */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+}
+
 #main {
   text-align: center;
   padding: 100px 0;
-  /* background-image: url("../images/landing.jpg");
-  background-size: cover;
-  background-position: center; */
   background: rgb(15, 15, 16);
-  background: radial-gradient(circle, rgba(15, 15, 16, 1) 0%, rgba(7, 37, 73, 1) 100%); 
-  font-family: "Raleway", sans-serif;
+  background: radial-gradient(circle, rgba(15, 15, 16, 1) 0%, rgba(7, 37, 73, 1) 100%);
   flex-grow: 1;
 }
 
