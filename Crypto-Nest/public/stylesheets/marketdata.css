@@ -30,7 +30,8 @@
     align-items: center;
     border-radius: 5px;
     width: 50%;
-    margin-left: px;
+    margin-left: 45px;
+    padding: 30px;
 }
 
 .search-bar select {
