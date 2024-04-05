@@ -12,13 +12,13 @@ Crypto Nest is a web application designed to help users track their cryptocurren
 
 ## Getting Started
 
- Visit the following URL to access Crypto Nest online: [URL]
+ Visit the following URL to access Crypto Nest online: [https://crypto-nest-0a3da69d85da.herokuapp.com]
 
 ## Technologies Used
 - **Frontend:** JavaScript, HTML, CSS
 - **Backend:** Node.js, Express.js, MongoDB
 - **Authentication:** OAuth
-- **API Integration:**
+- **API Integration:** CoinGecko
 - **Deployment:** Heroku
 
 ## Future Enhancements
