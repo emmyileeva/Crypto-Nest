@@ -1,130 +1,112 @@
 /* import the landing css page for global styles */
 @import url('landing.css');
+@import url('home.css');
 
-/* search bar styling */
-.search-bar {
+/* market data styling */
+.market-data {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    color: #fff;
+    text-align: center;
+}
+
+.market-data .title {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 20px;
     margin-top: 20px;
 }
 
-.search-bar input[type="text"] {
-    width: 200px;
-    padding: 10px;
+.market-data li {
+    margin-bottom: 10px;
+    font-size: 10px;
     border: 1px solid #ccc;
+}
+
+/* search bar styling  */
+.search-bar {
+    display: flex;
+    align-items: center;
     border-radius: 5px;
+    width: 50%;
+    margin-left: 75px;
+}
+
+.search-bar select {
+    flex-grow: 1;
+    font-size: 15px;
+    cursor: pointer;
+    color: #676B70;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 5px 10px;
+    width: 200px;
+    height: 40px;
+}
+
+.search-bar select:focus {
+    outline: 2px solid #0056b3;
 }
 
 .search-bar button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #333;
+    background-color: #676B70;
     color: #fff;
+    border: 2px solid #676B70;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-left: 10px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .search-bar button:hover {
-    background-color: #555;
-}
-/* filter options styling */
-.filter-options {
-    margin-bottom: 20px;
+    background-color: #0056b3;
 }
 
-.filter-options label {
-    margin-right: 10px;
-}
-
-.filter-options input[type="number"] {
-    width: 80px;
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.filter-options button {
-    padding: 8px 20px;
-    font-size: 16px;
-    background-color: #6c5ce7;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.filter-options button:hover {
-    background-color: #574b90;
-}
-/* sort options styling */
+/* Sort options styling */
 .sort-options {
-    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    width: 50%;
 }
 
 .sort-options label {
     margin-right: 10px;
+    margin-left: 20px;
+    font-size: 15px;
+    color: #fff;
 }
 
 .sort-options select {
-    padding: 8px;
-    font-size: 16px;
-    border: 1px solid #ccc;
+    flex-grow: 1;
+    font-size: 15px;
+    cursor: pointer;
+    color: #676B70;
+    background-color: #fff;
     border-radius: 5px;
+    padding: 5px 10px;
+    width: 200px;
+    height: 40px;
+}
+
+.sort-options select:focus {
+    outline: 2px solid #0056b3;
 }
 
 .sort-options button {
-    padding: 8px 20px;
-    font-size: 16px;
-    background-color: #6c5ce7;
+    background-color: #676B70;
     color: #fff;
-    border: none;
+    border: 2px solid #676B70;
     border-radius: 5px;
+    padding: 5px 20px;
+    margin-left: 15px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .sort-options button:hover {
-    background-color: #574b90;
+    background-color: #0056b3;
 }
 
-/* Market data section styling */
-.market-data {
-    margin-top: 20px;
-}
-
-.market-data h2 {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-/* Crypto item styling */
-.crypto-item {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
-.crypto-item h3 {
-    font-size: 20px;
-    color: #333;
-    margin-top: 0;
-}
-
-.crypto-info {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 10px;
-}
-
-.crypto-info p {
-    flex: 1 1 50%;
-    font-size: 16px;
-    color: #555;
-    margin: 5px 0;
-}
-
-.crypto-info p:nth-child(odd) {
-    font-weight: bold;
-    color: #333;
-}
