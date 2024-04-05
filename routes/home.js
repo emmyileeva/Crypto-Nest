@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const ensureLoggedIn = require("../config/ensureLoggedIn");
-const CryptocurrencyHolding = require("../models/CryptocurrencyHolding");
+const CryptocurrencyHolding = require("../models/CryptocurrencyHoldings");
 
 // Route handler for the home page
 router.get("/", ensureLoggedIn, async (req, res, next) => {

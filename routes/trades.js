@@ -4,7 +4,7 @@ const ensureLoggedIn = require("../config/ensureLoggedIn");
 const marketdataController = require("../controllers/marketdata");
 const axios = require("axios");
 const tradesController = require("../controllers/trades");
-const cryptocurrencyHolding = require("../models/cryptocurrencyHolding");
+const cryptocurrencyHolding = require("../models/CryptocurrencyHoldings");
 
 // Route to render trade.ejs and pass marketData and cryptocurrencies
 router.get("/", ensureLoggedIn, async (req, res, next) => {
