@@ -32,7 +32,7 @@ router.post("/delete-account", async (req, res) => {
   try {
     // Delete user account from the database
     await User.findByIdAndDelete(userId);
-    req.logout();
+    res.redirect("/");
   } catch (error) {
     console.error(error);
   }

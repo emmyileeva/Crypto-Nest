@@ -140,9 +140,17 @@ footer p {
 }
 
 /* logo styling */
-/* .logo-container {
+.logo-container {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
-} */
+  width: 200px;
+  height: 100px;
+}
+
+.logo-container img {
+  width: 100%;
+  height: auto;
+}
