@@ -1,65 +1,65 @@
 <%- include('partials/header') %>
-<div class="main">
-    <!-- Navigation bar -->
-    <nav class="navbar">
-        <ul>
-            <li><a href="/home">Home</a></li>
-            <li><a href="/trades">Trade</a></li>
-            <li><a href="/marketdata">Market Data</a></li>
-            <!-- Settings and Log Out links -->
-            <li><a class="settings" href="/settings">Settings</a></li>
-            <li><a class="settings" href="/logout">Log Out</a></li>
-        </ul>
-    </nav>
+    <div class="main">
+        <!-- Navigation bar -->
+        <nav class="navbar">
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/trades">Trade</a></li>
+                <li><a href="/marketdata">Market Data</a></li>
+                <!-- Settings and Log Out links -->
+                <li><a class="settings" href="/settings">Settings</a></li>
+                <li><a class="settings" href="/logout">Log Out</a></li>
+            </ul>
+        </nav>
 
-<div class="everything">
-    <!-- portfolio summary -->
-    <section class="portfolio-summary">
-        <h2 class="title">Portfolio Summary</h2>
-        <div class="summary-info">
-            <div class="total-portfolio-value">
-                <h3>Total Portfolio Balance</h3>
-                <p>
-                    $<% let totalAmount=0; %>
-                        <% holdings.forEach(holding=> { %>
-                            <% totalAmount +=holding.amount; %>
+        <div class="everything">
+            <!-- portfolio summary -->
+            <section class="portfolio-summary">
+                <h2 class="title">Portfolio Summary</h2>
+                <div class="summary-info">
+                    <div class="total-portfolio-value">
+                        <h3>Total Portfolio Balance</h3>
+                        <p>
+                            $<% let totalAmount=0; %>
+                                <% holdings.forEach(holding=> { %>
+                                    <% totalAmount +=holding.amount; %>
+                                        <% }); %>
+                                            <%= totalAmount %>
+                        </p>
+                    </div>
+                </div>
+                <div class="graphs">
+                    <!-- graphs -->
+                </div>
+            </section>
+
+            <!-- crypto holdings -->
+            <section class="crypto-holdings">
+                <h2 class="title2">Cryptocurrency Holdings</h2>
+                <div class="holdings-list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cryptocurrency</th>
+                                <th>Amount(USD)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% holdings.forEach(holding=> { %>
+                                <tr>
+                                    <td>
+                                        <%= holding.cryptocurrency %>
+                                    </td>
+                                    <td>
+                                        $<%= holding.amount %>
+                                    </td>
+                                </tr>
                                 <% }); %>
-                                    <%= totalAmount %>
-                </p>
-            </div>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
         </div>
-        <div class="graphs">
-            <!-- graphs -->
-        </div>
-    </section>
-
-    <!-- crypto holdings -->
-    <section class="crypto-holdings">
-        <h2 class="title2">Cryptocurrency Holdings</h2>
-        <div class="holdings-list">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Cryptocurrency</th>
-                        <th>Amount(USD)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% holdings.forEach(holding=> { %>
-                        <tr>
-                            <td>
-                                <%= holding.cryptocurrency %>
-                            </td>
-                            <td>
-                                $<%= holding.amount %>
-                            </td>
-                        </tr>
-                        <% }); %>
-                </tbody>
-            </table>
-        </div>
-    </section>
     </div>
-</div>
 
     <%- include('partials/footer') %>

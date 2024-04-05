@@ -2,6 +2,12 @@
 @import url('landing.css');
 @import url('home.css');
 
+/* #full-width {
+    width: 100%;
+    margin: 0 auto;
+
+} */
+
 #layout {
     flex: 1;
     margin: 10px;
@@ -34,6 +40,7 @@
 #trade-section {
     display: flex;
     width: 50%;
+    margin: 0 auto;
 }
 
 .forms {

@@ -67,8 +67,6 @@ const updateHoldings = async (userId, cryptoType, amount) => {
 };
 
 module.exports = {
-    calculateTotalAmount,
-    updateHoldings,
+  calculateTotalAmount,
+  updateHoldings,
 };
-
-

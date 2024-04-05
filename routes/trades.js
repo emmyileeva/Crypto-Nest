@@ -17,7 +17,7 @@ router.get("/", ensureLoggedIn, async (req, res, next) => {
     );
     const userId = req.user._id;
     const cryptocurrencies = response.data;
-    const holdings = await cryptocurrencyHolding.find({ "user": userId });
+    const holdings = await cryptocurrencyHolding.find({ user: userId });
     res.render("trade", { marketData, cryptocurrencies, holdings, userId });
   } catch (error) {
     next(error);
@@ -25,7 +25,7 @@ router.get("/", ensureLoggedIn, async (req, res, next) => {
 });
 
 // Handle the buy request
-router.post('/', tradesController.create);
+router.post("/", tradesController.create);
 
 // Handle the sell request
 router.put("/sell/:id", tradesController.update);

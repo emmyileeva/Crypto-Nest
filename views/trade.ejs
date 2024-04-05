@@ -1,127 +1,131 @@
 <%- include('partials/header') %>
 
 <div class="main">
-        <!-- Navigation bar -->
-        <nav>
-            <ul>
-                <li><a href="/home">Home</a></li>
-                <li><a href="/portfolio">Portfolio</a></li>
-                <li><a href="/marketdata">Market Data</a></li>
-                <!-- Settings and Log Out links -->
-                <li><a class="settings" href="/settings">Settings</a></li>
-                <li><a class="settings" href="/logout">Log Out</a></li>
-            </ul>
-        </nav>
+  <!-- Navigation bar -->
+  <nav>
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/portfolio">Portfolio</a></li>
+      <li><a href="/marketdata">Market Data</a></li>
+      <!-- Settings and Log Out links -->
+      <li><a class="settings" href="/settings">Settings</a></li>
+      <li><a class="settings" href="/logout">Log Out</a></li>
+    </ul>
+  </nav>
 
-        <!-- Trade section -->
-        <div class="everything">
-            <div id="trade-section">
-                <div id="layout">
-                    <!-- Holdings History -->
-                    <h2 class="history">Transaction History</h2>
+  <!-- Trade section -->
+  <div class="everything" id="full-width">
+    <div id="trade-section">
+      <div id="layout">
+        <!-- Holdings History -->
+        <h2 class="history">Transaction History</h2>
 
-                    <ul>
-                        <% holdings.forEach(holding=> { %>
-                            <li>
-                                <h3>
-                                    <% if (holding.sellDate) { %>
-                                        Sold <%= holding.cryptocurrency %>
-                                            <% } else { %>
-                                                Bought <%= holding.cryptocurrency %>
-                                                    <% } %>
-                                </h3>
-                                <p>Amount(USD): $<%= holding.amount %>
-                                </p>
-                                <% if (!holding.sellDate) { %>
-                                    <p>Purchase Date: <%= new Date(holding.purchaseDate).toLocaleDateString('en-US', {
-                                            month: 'short' , day: 'numeric' , year: 'numeric' }) %>
-                                    </p>
-                                    <% } else { %>
-                                        <p>Sell Date: <%= new Date(holding.sellDate).toLocaleDateString('en-US', {
-                                                month: 'short' , day: 'numeric' , year: 'numeric' }) %>
-                                        </p>
-                                        <% } %>
-                            </li>
-                            <% }); %>
-                    </ul>
-                </div>
-                <div class="layout">
-                    <div class="forms">
-                        <!-- buy form -->
-                        <h2>Buy</h2>
-                        <form action="/trades" method="post">
-                            <label for="crypto">Cryptocurrency:</label>
-                            <select id="crypto" name="cryptoType">
-                                <% cryptocurrencies.forEach(crypto=> { %>
-                                    <option value="<%= crypto.id %>">
-                                        <%= crypto.name %>
-                                    </option>
-                                    <% }); %>
-                            </select>
-                            <label for="usdAmount">Amount (USD):</label>
-                            <div class="symbol">
-                                <span class="money-symbol">$</span>
-                                <input type="number" id="usdAmount" name="amount" step="0.01" min="0.01" required>
-                            </div>
-                            <input type="hidden" name="userId" value="<%= userId %>">
-                            <input type="hidden" name="price">
-                            <button type="submit">Buy</button>
-                        </form>
-
-                        <!-- sell form -->
-                        <h2>Sell</h2>
-                        <form action="/trades/sell/<%= user._id %>?_method=put" method="post">
-                            <input type="hidden" name="userId" value="<%= user._id %>">
-                            <label for="crypto">Cryptocurrency:</label>
-                            <select id="crypto" name="cryptoType">
-                                <% cryptocurrencies.forEach(crypto=> { %>
-                                    <option value="<%= crypto.id %>">
-                                        <%= crypto.name %>
-                                    </option>
-                                    <% }); %>
-                            </select>
-                            <label for="usdAmount">Amount (USD):</label>
-                            <div class="symbol">
-                                <span class="money-symbol">$</span>
-                                <input type="number" id="usdAmount" name="usdAmount" step="0.01" min="0.01" required>
-                            </div>
-                            <button type="submit">Sell</button>
-                        </form>
-                    </div>
-                </div>
+        <ul>
+          <% holdings.forEach(holding=> { %>
+          <li>
+            <h3>
+              <% if (holding.sellDate) { %> Sold <%= holding.cryptocurrency %>
+              <% } else { %> Bought <%= holding.cryptocurrency %> <% } %>
+            </h3>
+            <p>Amount(USD): $<%= holding.amount %></p>
+            <% if (!holding.sellDate) { %>
+            <p>
+              Purchase Date: <%= new
+              Date(holding.purchaseDate).toLocaleDateString('en-US', { month:
+              'short' , day: 'numeric' , year: 'numeric' }) %>
+            </p>
+            <% } else { %>
+            <p>
+              Sell Date: <%= new
+              Date(holding.sellDate).toLocaleDateString('en-US', { month:
+              'short' , day: 'numeric' , year: 'numeric' }) %>
+            </p>
+            <% } %>
+          </li>
+          <% }); %>
+        </ul>
+      </div>
+      <div class="layout">
+        <div class="forms">
+          <!-- buy form -->
+          <h2>Buy</h2>
+          <form class="container-width" action="/trades" method="post">
+            <label for="crypto">Cryptocurrency:</label>
+            <select id="crypto" name="cryptoType">
+              <% cryptocurrencies.forEach(crypto=> { %>
+              <option value="<%= crypto.id %>"><%= crypto.name %></option>
+              <% }); %>
+            </select>
+            <label for="usdAmount">Amount (USD):</label>
+            <div class="symbol">
+              <span class="money-symbol">$</span>
+              <input
+                type="number"
+                id="usdAmount"
+                name="amount"
+                step="0.01"
+                min="0.01"
+                required
+              />
             </div>
-            <div class="crypto-list">
-                <!-- Cryptocurrency list -->
-                <h2 class="crypto-list-title">Cryptocurrencies</h2>
-                <ul>
-                    <% marketData.forEach(coin=> { %>
-                        <li>
-                            <h3>
-                                <%= coin.name %>
-                            </h3>
-                            <p>Symbol: <%= coin.symbol %>
-                            </p>
-                            <p>Price: <%= coin.current_price %> USD</p>
-                            <p>Market Cap: <%= coin.market_cap %> USD</p>
-                            <p>High (24h): <%= coin.high_24h %> USD</p>
-                            <p>Low (24h): <%= coin.low_24h %> USD</p>
-                            <p>Price Change (24h): <%= coin.price_change_24h %> USD</p>
-                            <p>Market Cap Rank: <%= coin.market_cap_rank %>
-                            </p>
-                            <p>Circulating Supply: <%= coin.circulating_supply %>
-                            </p>
-                            <p>Total Volume: <%= coin.total_volume %>
-                            </p>
-                            <p>All-Time High: <%= coin.ath %> USD (on <%= coin.ath_date %>)</p>
-                            <p>All-Time Low: <%= coin.atl %> USD (on <%= coin.atl_date %>)</p>
-                            <% if (coin.roi) { %>
-                                <p>ROI: <%= coin.roi.times %> times (<%= coin.roi.currency %>)</p>
-                                <% } %>
-                        </li>
-                        <% }); %>
-                </ul>
+            <input type="hidden" name="userId" value="<%= userId %>" />
+            <input type="hidden" name="price" />
+            <button type="submit">Buy</button>
+          </form>
+
+          <!-- sell form -->
+          <h2>Sell</h2>
+          <form action="/trades/sell/<%= user._id %>?_method=put" method="post">
+            <input type="hidden" name="userId" value="<%= user._id %>" />
+            <label for="crypto">Cryptocurrency:</label>
+            <select id="crypto" name="cryptoType">
+              <% cryptocurrencies.forEach(crypto=> { %>
+              <option value="<%= crypto.id %>"><%= crypto.name %></option>
+              <% }); %>
+            </select>
+            <label for="usdAmount">Amount (USD):</label>
+            <div class="symbol">
+              <span class="money-symbol">$</span>
+              <input
+                type="number"
+                id="usdAmount"
+                name="usdAmount"
+                step="0.01"
+                min="0.01"
+                required
+              />
             </div>
+            <button type="submit">Sell</button>
+          </form>
         </div>
+      </div>
     </div>
+    <div class="crypto-list">
+      <!-- Cryptocurrency list -->
+      <h2 class="crypto-list-title">Cryptocurrencies</h2>
+      <ul>
+        <% marketData.forEach(coin=> { %>
+        <li>
+          <h3><%= coin.name %></h3>
+          <p>Symbol: <%= coin.symbol %></p>
+          <p>Price: <%= coin.current_price %> USD</p>
+          <p>Market Cap: <%= coin.market_cap %> USD</p>
+          <p>High (24h): <%= coin.high_24h %> USD</p>
+          <p>Low (24h): <%= coin.low_24h %> USD</p>
+          <p>Price Change (24h): <%= coin.price_change_24h %> USD</p>
+          <p>Market Cap Rank: <%= coin.market_cap_rank %></p>
+          <p>Circulating Supply: <%= coin.circulating_supply %></p>
+          <p>Total Volume: <%= coin.total_volume %></p>
+          <p>All-Time High: <%= coin.ath %> USD (on <%= coin.ath_date %>)</p>
+          <p>All-Time Low: <%= coin.atl %> USD (on <%= coin.atl_date %>)</p>
+          <% if (coin.roi) { %>
+          <p>ROI: <%= coin.roi.times %> times (<%= coin.roi.currency %>)</p>
+          <% } %>
+        </li>
+        <% }); %>
+      </ul>
+    </div>
+  </div>
+</div>
 
-    <%- include('partials/footer') %>
+<%- include('partials/footer') %>

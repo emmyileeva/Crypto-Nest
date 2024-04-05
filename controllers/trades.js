@@ -14,7 +14,7 @@ const create = async (req, res) => {
     });
     // Save the new holding to the database
     await newHolding.save();
-      res.redirect("/trades");
+    res.redirect("/trades");
   } catch (err) {
     // Handle errors
     console.error(err);
@@ -34,7 +34,7 @@ const update = async (req, res) => {
     });
     // Save the new holding record
     await newHolding.save();
-       res.redirect("/trades");
+    res.redirect("/trades");
   } catch (err) {
     // Handle errors
     console.error(err);
