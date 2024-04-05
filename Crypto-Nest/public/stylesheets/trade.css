@@ -1,72 +1,106 @@
-/* import the landing css page for global styles */
+/* import the landing and home css page for global styles */
 @import url('landing.css');
+@import url('home.css');
 
-/* trade section styling */
-.trade-section {
-    margin-top: 20px;
+#layout {
+    flex: 1;
+    margin: 10px;
+    border: 2px solid #ccc;
+    text-align: center;
+    background: rgb(15, 15, 16);
+    background: radial-gradient(circle, rgba(15, 15, 16, 1) 0%, rgba(7, 37, 73, 1) 100%);
 }
 
-.title {
-    font-size: 24px;
-    color: #333;
+.everything .history {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 10px;
 }
-/* search bar styling */
-.search-bar {
+
+.everything ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.everything ul li {
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: 12px;
+    border-radius: 5px;
+    color: #ccc;
+}
+
+#trade-section {
+    display: flex;
+    width: 50%;
+}
+
+.forms {
+    color: #fff;
+    padding: 20px;
+    margin: 10px;
+    border: 2px solid #ccc;
+}
+
+.everything .forms label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ccc;
+}
+
+.everything .forms h2 {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.forms input[type="number"],
+.forms select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.forms button {
+    background-color: #676B70;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.forms button:hover {
+    background-color: #555;
+}
+
+
+.crypto-list .crypto-list-title {
+    color: #fff;
+    font-size: 20px;
     margin-bottom: 20px;
 }
 
-#search {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-/* crypto list styling */
 .crypto-list {
     list-style-type: none;
     padding: 0;
+    margin: 0;
+    color: #fff;
+    text-align: center;
 }
 
 .crypto-list li {
     margin-bottom: 10px;
-    font-size: 18px;
-    color: #333;
-}
-
-/* buy/sell form styling */
-#tradeForm {
-    margin-top: 20px;
-}
-
-#tradeForm label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-#tradeForm select,
-#tradeForm input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
+    font-size: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
 }
 
-#tradeForm .btn {
-    background-color: #6c5ce7;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#tradeForm .btn:hover {
-    background-color: #574b90;
-}
-
-/* money sign styling */
 .symbol {
     display: flex;
     align-items: center;
@@ -74,7 +108,7 @@
 
 .money-symbol {
     margin-right: 5px;
-    color: #555;
+    color: #ccc;
 }
 
 #usdAmount {

@@ -1,5 +1,6 @@
 /* import the landing css page for global styles */
 @import url('landing.css');
+@import url('home.css');
 
 /* portfolio summary styling */
 .portfolio-summary {
