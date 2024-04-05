@@ -1,4 +1,4 @@
-const CryptocurrencyHolding = require("../models/cryptocurrencyHolding");
+const CryptocurrencyHolding = require("../models/CryptocurrencyHoldings");
 
 // buy
 const create = async (req, res) => {
